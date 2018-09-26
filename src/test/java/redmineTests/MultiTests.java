@@ -76,11 +76,11 @@ public class MultiTests {
     @Test
     public void buscaTest() {
         HomePage hp = new HomePage(driver);
-        BuscaPage bp = hp.getMenu().writeOnBusca("teste").SendBusca();
+        BuscaPage bp = hp.getMenu().writeOnBusca("lorem Ipsum").SendBusca();
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.titleIs("Busca - Redmine demo"));
-        Assert.assertEquals("Resultados (20)", bp.getMessageResults().getText());
+        Assert.assertEquals("Resultados (1)", bp.getMessageResults().getText());
 
     }
 
