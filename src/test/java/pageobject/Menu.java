@@ -27,10 +27,10 @@ public class Menu extends BasePage {
     @FindBy(xpath = "//*[@id=\"top-menu\"]/ul/li[3]/a")
     WebElement linkHelp;
     
-    @FindBy(css = "#top-menu li.my-page")
+    @FindBy(xpath = "//*[@id=\"top-menu\"]/ul/li[2]/a")
     WebElement linkMyPage;
     
-    @FindBy(css = "#top-menu #loggedas .user.active")
+    @FindBy(xpath = "//*[@id=\"loggedas\"]/a")
     WebElement linkLoggedUser;
     
     @FindBy(xpath = "//*[@id=\"account\"]/ul/li[1]/a")
@@ -39,10 +39,10 @@ public class Menu extends BasePage {
     @FindBy(xpath = "//*[@id=\"account\"]/ul/li[2]/a")
     WebElement linkRegister;
 
-    @FindBy(css = "#top-menu #account li.my-account")
+    @FindBy(xpath = "//*[@id=\"account\"]/ul/li[1]/a")
     WebElement linkMyAccount;
 
-    @FindBy(css = "#top-menu #account li.logout")
+    @FindBy(xpath = "//*[@id=\"account\"]/ul/li[2]/a")
     WebElement linkLogout;
 
     @FindBy(id = "q")
@@ -70,9 +70,13 @@ public class Menu extends BasePage {
         clickMenuOption(linkHelp);
         return new HelpPage(driver);
     }
-    public LoggedUserHomePage goToMyAccount() {
+    public MyAccountPage goToMyAccount() {
         clickMenuOption(linkMyAccount);
-        return new LoggedUserHomePage(driver);
+        return new MyAccountPage(driver);
+    }
+    public UserPage goToUserPage() {
+        clickMenuOption(linkMyPage);
+        return new UserPage(driver);
     }
     
     private void clickMenuOption(WebElement menuOption) {

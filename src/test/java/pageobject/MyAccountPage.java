@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.Select;
  *
  * @author viniciusbs
  */
-public class LoggedUserHomePage extends RedmineBasePage {
+public class MyAccountPage extends RedmineBasePage {
     @FindBy(id = "user_firstname")
     WebElement inputFirstName;
     
@@ -55,35 +55,35 @@ public class LoggedUserHomePage extends RedmineBasePage {
     WebElement linkAccountDelete;
     
     
-    public LoggedUserHomePage (WebDriver driver) { super(driver); }
+    public MyAccountPage (WebDriver driver) { super(driver); }
     
-    public LoggedUserHomePage fillFirstName(String firstName) {
+    public MyAccountPage fillFirstName(String firstName) {
         inputFirstName.clear();
         inputFirstName.sendKeys(firstName);
         return this;
     }
     
-    public LoggedUserHomePage fillLastName(String lastName) {
+    public MyAccountPage fillLastName(String lastName) {
         inputLastName.clear();
         inputLastName.sendKeys(lastName);
         return this;
     }
     
-    public LoggedUserHomePage fillEmail(String email) {
+    public MyAccountPage fillEmail(String email) {
         inputEmail.clear();
         inputEmail.sendKeys(email);
         return this;
     }
     
-    public LoggedUserHomePage selectLanguage(String language) {
+    public MyAccountPage selectLanguage(String language) {
         Select comboboxLang = new Select(comboboxLanguage);
         comboboxLang.selectByVisibleText(language);
         return this;
     }
     
-    public LoggedUserHomePage clickSaveButton() {
+    public MyAccountPage clickSaveButton() {
         buttonSaveChanges.click();
-        return new LoggedUserHomePage(driver);
+        return new MyAccountPage(driver);
     }  
     
 }

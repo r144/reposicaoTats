@@ -50,8 +50,8 @@ public class LoginPage extends RedmineBasePage {
         return this;
     }
 
-    public LoggedUserHomePage clickLoginButton() {
+    public HomePage clickLoginButton() {
         getButtonLogin().click();
-        return new LoggedUserHomePage(driver);
+        return new HomePage(driver);
     }
 }

@@ -129,10 +129,10 @@ public class RegisterPage extends RedmineBasePage {
 
     }
 
-    public LoggedUserHomePage clickRegisterButton() {
+    public MyAccountPage clickRegisterButton() {
 
         getButtonCommit().click();
-        return new LoggedUserHomePage(driver);
+        return new MyAccountPage(driver);
 
     }
 

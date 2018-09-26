@@ -53,8 +53,11 @@ public class MultiTests {
     public void loginTest() {
         HomePage hp = new HomePage(driver);
 
-        LoggedUserHomePage luhp = doLogin(hp);
-        // Assert
+        HomePage lhp = doLogin(hp);
+        
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.titleIs("Redmine demo"));
+        Assert.assertEquals("Página inicial", lhp.getPageTitle().getText());
     }
 
     @Test
@@ -103,7 +106,16 @@ public class MultiTests {
         Assert.assertEquals("http://demo.redmine.org/", hp.getLink());
     }
 
-    private LoggedUserHomePage doLogin(HomePage hp) {
+    @Test
+    public void myPageTest() {
+        HomePage hp = new HomePage(driver);
+        HomePage lhp = doLogin(hp);
+        lhp.getMenu().goToUserPage();
+        
+        Assert.assertEquals("http://demo.redmine.org/my/page", lhp.getLink());
+    }
+    
+    private HomePage doLogin(HomePage hp) {
         return hp.getMenu()
                 .goToLogin()
                 .fillUser("vinibs")

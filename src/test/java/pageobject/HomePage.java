@@ -11,6 +11,9 @@ public class HomePage extends RedmineBasePage {
 
     @FindBy(linkText = "create your own project")
     private WebElement linkCreateOwnProject;
+    
+    @FindBy(tagName = "h2")
+    private WebElement pageTitle;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -23,5 +26,9 @@ public class HomePage extends RedmineBasePage {
 
     public WebElement getLinkCreateOwnProject() {
         return linkCreateOwnProject;
+    }
+    
+    public WebElement getPageTitle() {
+        return pageTitle;
     }
 }
