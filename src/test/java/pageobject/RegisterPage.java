@@ -75,35 +75,41 @@ public class RegisterPage extends RedmineBasePage {
         return buttonCommit;
     }
 
-public RegisterPage fillUser(String user) {
-    getInputUser().sendKeys(user);
-    return this;
-}
-public RegisterPage fillPass(String password) {
-    getInputPassword().sendKeys(password);
-    return this;
+    public RegisterPage fillUser(String user) {
+        getInputUser().sendKeys(user);
+        return this;
+    }
+
+    public RegisterPage fillPass(String password) {
+        getInputPassword().sendKeys(password);
+        return this;
 
     }
+
     public RegisterPage fillPassConfirm(String passwordConfirm) {
         getInputPasswordConfirm().sendKeys(passwordConfirm);
         return this;
 
     }
+
     public RegisterPage fillName(String name) {
         getInputFirstName().sendKeys(name);
         return this;
 
     }
+
     public RegisterPage fillLastName(String lastName) {
         getInputLastName().sendKeys(lastName);
         return this;
 
     }
+
     public RegisterPage fillEmail(String email) {
         getInputEmail().sendKeys(email);
         return this;
 
     }
+
     public RegisterPage fillLanguage(String language) {
 
         Select selectLanguage = new Select(getComboLanguage());
@@ -112,13 +118,15 @@ public RegisterPage fillPass(String password) {
         return this;
 
     }
+
     public RegisterPage fillNick(String nick) {
 
         getInputNick().sendKeys(nick);
         return this;
 
     }
-    public LoggedUserHomePage clickRegisterButton(String language) {
+
+    public LoggedUserHomePage clickRegisterButton() {
 
         getButtonCommit().click();
         return new LoggedUserHomePage(driver);

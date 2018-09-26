@@ -5,6 +5,7 @@
  */
 package pageobject;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -53,7 +54,10 @@ public class Menu extends BasePage {
         linkLogin.click();
         return new LoginPage(driver);
     }
-    
+    public RegisterPage goToRegister() {
+        linkRegister.click();
+        return new RegisterPage(driver);
+    }
     public LoggedUserHomePage goToMyAccount() {
         linkMyAccount.click();
         return new LoggedUserHomePage(driver);
@@ -65,8 +69,13 @@ public class Menu extends BasePage {
         menuOption.click();
     }
     
-    public void writeOnBusca(String buscaText){
+    public Menu writeOnBusca(String buscaText){
         inputBusca.sendKeys(buscaText);
-
+        return this;
     }
+    public BuscaPage SendBusca(){
+        inputBusca.sendKeys(Keys.ENTER);
+        return new BuscaPage(driver);
+    }
+
 }
