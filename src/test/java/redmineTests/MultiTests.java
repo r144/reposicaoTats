@@ -46,7 +46,7 @@ public class MultiTests {
 
 
      @Test
-     public void loginTest() {
+     public LoggedUserHomePage loginTest() {
          HomePage hp = new HomePage(driver);
          
          LoggedUserHomePage luhp = hp.getMenu()
