@@ -44,5 +44,7 @@ public class MultiTests {
 
 
      @Test
-     public void hello() {}
+     public void loginTest() {
+         driver.get("http://demo.redmine.org/");
+     }
 }

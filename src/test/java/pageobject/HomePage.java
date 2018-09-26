@@ -3,7 +3,6 @@ package pageobject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends BasePage{
 
@@ -13,8 +12,9 @@ public class HomePage extends BasePage{
     @FindBy(linkText = "create your own project")
     private WebElement linkCreateOwnProject;
 
-    public HomePage(WebDriver drier) {
-        super(drier);
+    public HomePage(WebDriver driver) {
+        super(driver);
+        driver.get("http://demo.redmine.org/");
     }
 
     public WebElement getLinkRegister() {
