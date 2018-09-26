@@ -13,10 +13,6 @@ public class HomePage extends BasePage{
     @FindBy(linkText = "create your own project")
     private WebElement linkCreateOwnProject;
 
-    @FindBy(id = "q")
-    private WebElement inputBusca;
-
-
     public HomePage(WebDriver drier) {
         super(drier);
     }
@@ -27,16 +23,5 @@ public class HomePage extends BasePage{
 
     public WebElement getLinkCreateOwnProject() {
         return linkCreateOwnProject;
-    }
-
-    public WebElement getInputBusca() {
-        return inputBusca;
-    }
-
-    private void writeOnBusca(String buscaText){
-
-        WebElement inputBusca = getInputBusca();
-        inputBusca.sendKeys(buscaText);
-
     }
 }

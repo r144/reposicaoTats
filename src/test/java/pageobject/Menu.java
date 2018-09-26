@@ -44,6 +44,9 @@ public class Menu extends BasePage {
     @FindBy(css = "#top-menu #account li.logout")
     WebElement linkLogout;
     
+    @FindBy(id = "q")
+    WebElement inputBusca;
+    
     public Menu (WebDriver driver) { super(driver); }
     
     public LoginPage goToLogin() {
@@ -51,9 +54,19 @@ public class Menu extends BasePage {
         return new LoginPage(driver);
     }
     
-    private void clickMenyuOption(WebElement menuOption) {
+    public LoggedUserHomePage goToMyAccount() {
+        linkMyAccount.click();
+        return new LoggedUserHomePage(driver);
+    }
+    
+    private void clickMenuOption(WebElement menuOption) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until( ExpectedConditions.elementToBeClickable(menuOption));
         menuOption.click();
+    }
+    
+    public void writeOnBusca(String buscaText){
+        inputBusca.sendKeys(buscaText);
+
     }
 }
