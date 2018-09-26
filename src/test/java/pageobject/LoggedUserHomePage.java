@@ -57,21 +57,33 @@ public class LoggedUserHomePage extends RedmineBasePage {
     
     public LoggedUserHomePage (WebDriver driver) { super(driver); }
     
-    
-    public LoggedUserHomePage updateAccountData(String firstName, String lastName, String email, String language) {
+    public LoggedUserHomePage fillFirstName(String firstName) {
         inputFirstName.clear();
         inputFirstName.sendKeys(firstName);
-        
+        return this;
+    }
+    
+    public LoggedUserHomePage fillLastName(String lastName) {
         inputLastName.clear();
         inputLastName.sendKeys(lastName);
-        
+        return this;
+    }
+    
+    public LoggedUserHomePage fillEmail(String email) {
         inputEmail.clear();
         inputEmail.sendKeys(email);
-        
+        return this;
+    }
+    
+    public LoggedUserHomePage selectLanguage(String language) {
         Select comboboxLang = new Select(comboboxLanguage);
         comboboxLang.selectByVisibleText(language);
-        
         return this;
-    }   
+    }
+    
+    public LoggedUserHomePage clickSaveButton() {
+        buttonSaveChanges.click();
+        return new LoggedUserHomePage(driver);
+    }  
     
 }
