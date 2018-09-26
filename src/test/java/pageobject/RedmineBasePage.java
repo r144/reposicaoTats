@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class RedmineBasePage extends BasePage{
+
     @FindBy(tagName = "h2")
     private WebElement title;
-
 
     private Menu menu;
 
