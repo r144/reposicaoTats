@@ -47,50 +47,5 @@ public class TesteExemplo01 {
     }
 
 
-    @Test
-    public void tryRegisterInvalidUserTest() {
-        HomePage hp = new HomePage(driver);
-        Menu m = hp.getMenu();
-        RegisterPage rp = m.goToRegister();
-        rp.fillUser("vinibs");
-        rp.fillPass("abacaxi");
-        rp.fillPassConfirm("abacaxi");
-        rp.fillName("Vinicius");
-        rp.fillLastName("Baroni");
-        rp.fillEmail("vsoares@gmail.com");
-        rp.fillLanguage("Portuguese/Brasil (Português/Brasil)");
-        rp.clickRegisterButton();
-        Assert.assertEquals("Usuário não está disponível", rp.getMessageError().getText());
-    }
-
-    @Test
-    public void buscaTest() {
-        HomePage hp = new HomePage(driver);
-        BuscaPage bp = hp.getMenu().writeOnBusca("teste").SendBusca();
-
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.titleIs("Busca - Redmine demo"));
-        Assert.assertEquals("Resultados (20)", bp.getMessageResults().getText());
-
-    }
-
-    @Test
-    public void menuOptionsTest() {
-        HomePage hp = new HomePage(driver);
-        RegisterPage rp = hp.getMenu().goToRegister();
-        Assert.assertEquals("http://demo.redmine.org/account/register", rp.getLink());
-
-        LoginPage lp = rp.getMenu().goToLogin();
-        Assert.assertEquals("http://demo.redmine.org/login", lp.getLink());
-
-        HelpPage helpPage = lp.getMenu().goToHelp();
-        Assert.assertEquals("http://www.redmine.org/guide", helpPage.getLink());
-
-        ProjectsPage pp = helpPage.getMenu().goToProjects();
-        Assert.assertEquals("http://www.redmine.org/projects", pp.getLink());
-
-        hp = pp.getMenu().goToHome();
-        Assert.assertEquals("http://demo.redmine.org/", hp.getLink());
-    }
 }
 

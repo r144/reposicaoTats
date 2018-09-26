@@ -45,8 +45,8 @@ public class LoginPage extends RedmineBasePage {
     }
 
     public LoginPage fillPass(String pass) {
-        getInputUserName().clear();
-        getInputUserName().sendKeys(pass);
+        getInputPassword().clear();
+        getInputPassword().sendKeys(pass);
         return this;
     }
 
