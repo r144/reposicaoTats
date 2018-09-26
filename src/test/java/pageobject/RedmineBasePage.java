@@ -8,7 +8,7 @@ public class RedmineBasePage extends BasePage{
     @FindBy(tagName = "h2")
     private WebElement title;
 
-    Menu menu;
+    private Menu menu;
 
     public RedmineBasePage(WebDriver driver){
         super(driver);
@@ -20,6 +20,6 @@ public class RedmineBasePage extends BasePage{
     }
 
     public String getTitle(){
-        return title.getAttribute();
+        return title.getText();
     }
 }
