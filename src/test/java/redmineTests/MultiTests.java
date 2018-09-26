@@ -114,6 +114,22 @@ public class MultiTests {
         
         Assert.assertEquals("http://demo.redmine.org/my/page", lhp.getLink());
     }
+
+    @Test
+    public void tryRegisterWithoutEmailTest() {
+        HomePage hp = new HomePage(driver);
+        Menu m = hp.getMenu();
+        RegisterPage rp = m.goToRegister();
+        rp.fillUser("vini");
+        rp.fillPass("abacaxi");
+        rp.fillPassConfirm("abacaxi");
+        rp.fillName("Vinicius");
+        rp.fillLastName("Baroni");
+        rp.getInputEmail().clear();
+        rp.fillLanguage("Portuguese/Brasil (Português/Brasil)");
+        rp.clickRegisterButton();
+        Assert.assertEquals("E-mail não pode ficar vazio", rp.getMessageError().getText());
+    }
     
     private HomePage doLogin(HomePage hp) {
         return hp.getMenu()
