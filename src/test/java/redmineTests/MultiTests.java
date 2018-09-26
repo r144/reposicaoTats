@@ -103,6 +103,16 @@ public class MultiTests {
         Assert.assertEquals("http://demo.redmine.org/", hp.getLink());
     }
 
+    @Test
+    public void ExportToAtomTest(){
+        HomePage hp = new HomePage(driver);
+        NewsPage np = hp.goToNews();
+        np.goToAtomExport();
+        Assert.assertEquals("http://demo.redmine.org/news.atom", np.getLink());
+
+    }
+
+
     private LoggedUserHomePage doLogin(HomePage hp) {
         return hp.getMenu()
                 .goToLogin()
