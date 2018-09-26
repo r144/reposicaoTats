@@ -16,6 +16,8 @@ import static org.junit.Assert.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import pageobject.HomePage;
+import pageobject.LoggedUserHomePage;
 
 /**
  *
@@ -45,6 +47,12 @@ public class MultiTests {
 
      @Test
      public void loginTest() {
-         driver.get("http://demo.redmine.org/");
+         HomePage hp = new HomePage(driver);
+         
+         LoggedUserHomePage luhp = hp.getMenu()
+                 .goToLogin()
+                 .fillUser("vinibs")
+                 .fillPass("abacaxi")
+                 .clickLoginButton();
      }
 }
