@@ -54,5 +54,7 @@ public class MultiTests {
                  .fillUser("vinibs")
                  .fillPass("abacaxi")
                  .clickLoginButton();
+         
+         return luhp;
      }
 }
