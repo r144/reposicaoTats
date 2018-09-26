@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 public class HomePage extends RedmineBasePage {
 
     @FindBy(linkText = "register for an account")
-    private WebElement linkRegister;
+    public WebElement linkRegister;
 
     @FindBy(linkText = "create your own project")
     private WebElement linkCreateOwnProject;

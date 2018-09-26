@@ -18,13 +18,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class Menu extends BasePage {
     
-    @FindBy(css = "#top-menu li.home")
+    @FindBy(xpath = "//*[@id=\"top-menu\"]/ul/li[1]/a")
     WebElement linkHome;
     
-    @FindBy(css = "#top-menu li.projects")
+    @FindBy(xpath = "//*[@id=\"top-menu\"]/ul/li[2]/a")
     WebElement linkProjects;
     
-    @FindBy(css = "#top-menu li.help")
+    @FindBy(xpath = "//*[@id=\"top-menu\"]/ul/li[3]/a")
     WebElement linkHelp;
     
     @FindBy(css = "#top-menu li.my-page")
@@ -33,10 +33,10 @@ public class Menu extends BasePage {
     @FindBy(css = "#top-menu #loggedas .user.active")
     WebElement linkLoggedUser;
     
-    @FindBy(css = "#top-menu #account li.login")
+    @FindBy(xpath = "//*[@id=\"account\"]/ul/li[1]/a")
     WebElement linkLogin;
 
-    @FindBy(linkText = "Cadastre-se")
+    @FindBy(xpath = "//*[@id=\"account\"]/ul/li[2]/a")
     WebElement linkRegister;
 
     @FindBy(css = "#top-menu #account li.my-account")
@@ -49,17 +49,29 @@ public class Menu extends BasePage {
     WebElement inputBusca;
     
     public Menu (WebDriver driver) { super(driver); }
-    
+
     public LoginPage goToLogin() {
-        linkLogin.click();
+        clickMenuOption(linkLogin);
         return new LoginPage(driver);
     }
+    public HomePage goToHome() {
+        clickMenuOption(linkHome);
+        return new HomePage(driver);
+    }
+    public ProjectsPage goToProjects() {
+        clickMenuOption(linkProjects);
+        return new ProjectsPage(driver);
+    }
     public RegisterPage goToRegister() {
-        linkRegister.click();
+        clickMenuOption(linkRegister);
         return new RegisterPage(driver);
     }
+    public HelpPage goToHelp() {
+        clickMenuOption(linkHelp);
+        return new HelpPage(driver);
+    }
     public LoggedUserHomePage goToMyAccount() {
-        linkMyAccount.click();
+        clickMenuOption(linkMyAccount);
         return new LoggedUserHomePage(driver);
     }
     
@@ -78,4 +90,43 @@ public class Menu extends BasePage {
         return new BuscaPage(driver);
     }
 
+    public WebElement getLinkHome() {
+        return linkHome;
+    }
+
+    public WebElement getLinkProjects() {
+        return linkProjects;
+    }
+
+    public WebElement getLinkHelp() {
+        return linkHelp;
+    }
+
+    public WebElement getLinkMyPage() {
+        return linkMyPage;
+    }
+
+    public WebElement getLinkLoggedUser() {
+        return linkLoggedUser;
+    }
+
+    public WebElement getLinkLogin() {
+        return linkLogin;
+    }
+
+    public WebElement getLinkRegister() {
+        return linkRegister;
+    }
+
+    public WebElement getLinkMyAccount() {
+        return linkMyAccount;
+    }
+
+    public WebElement getLinkLogout() {
+        return linkLogout;
+    }
+
+    public WebElement getInputBusca() {
+        return inputBusca;
+    }
 }

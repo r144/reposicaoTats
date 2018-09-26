@@ -31,9 +31,11 @@ public class RegisterPage extends RedmineBasePage {
     @FindBy(id = "user_custom_field_values_3")
     private WebElement inputNick;
 
-    @FindBy(name = "commit")
+    @FindBy(xpath = "//*[@id=\"new_user\"]/input[3]")
     private WebElement buttonCommit;
 
+    @FindBy(xpath = "//*[@id=\"errorExplanation\"]/ul/li")
+    private WebElement MessageError;
 
     public RegisterPage(WebDriver driver) {
         super(driver);
@@ -75,11 +77,12 @@ public class RegisterPage extends RedmineBasePage {
         return buttonCommit;
     }
 
+    public WebElement getMessageError() { return MessageError; }
+
     public RegisterPage fillUser(String user) {
         getInputUser().sendKeys(user);
         return this;
     }
-
     public RegisterPage fillPass(String password) {
         getInputPassword().sendKeys(password);
         return this;
@@ -132,4 +135,5 @@ public class RegisterPage extends RedmineBasePage {
         return new LoggedUserHomePage(driver);
 
     }
+
 }
