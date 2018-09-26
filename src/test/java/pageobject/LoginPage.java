@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPage extends RedmineBasePage{
+public class LoginPage extends RedmineBasePage {
 
     @FindBy(id = "username")
     private WebElement inputUserName;
@@ -38,14 +38,20 @@ public class LoginPage extends RedmineBasePage{
         return linkLostPassowrd;
     }
 
-    public void DoLogin(String user, String password){
-        WebElement inputUser = getInputUserName();
-        WebElement inputPass = getInputPassword();
-        WebElement buttonLogin = getButtonLogin();
+    public LoginPage fillUser(String user) {
+        getInputUserName().clear();
+        getInputUserName().sendKeys(user);
+        return this;
+    }
 
-        inputUser.sendKeys(user);
-        inputPass.sendKeys(password);
+    public LoginPage fillPass(String pass) {
+        getInputUserName().clear();
+        getInputUserName().sendKeys(pass);
+        return this;
+    }
 
-        buttonLogin.click();
+    public LoggedUserHomePage clickLoginButton() {
+        getButtonLogin().click();
+        return new LoggedUserHomePage(driver);
     }
 }
