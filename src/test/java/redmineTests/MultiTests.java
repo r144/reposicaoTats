@@ -46,15 +46,18 @@ public class MultiTests {
 
 
      @Test
-     public LoggedUserHomePage loginTest() {
+     public void loginTest() {
          HomePage hp = new HomePage(driver);
          
-         LoggedUserHomePage luhp = hp.getMenu()
-                 .goToLogin()
-                 .fillUser("vinibs")
-                 .fillPass("abacaxi")
-                 .clickLoginButton();
-         
-         return luhp;
+         LoggedUserHomePage luhp = doLogin(hp);
+         // Assert
+     }
+     
+     private LoggedUserHomePage doLogin(HomePage hp) {
+         return hp.getMenu()
+                .goToLogin()
+                .fillUser("vinibs")
+                .fillPass("abacaxi")
+                .clickLoginButton();
      }
 }
