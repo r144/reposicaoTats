@@ -35,16 +35,16 @@ public class Menu extends BasePage {
     
     @FindBy(css = "#top-menu #account li.login")
     WebElement linkLogin;
-    
-    @FindBy(css = "#top-menu #account li.register")
+
+    @FindBy(linkText = "Cadastre-se")
     WebElement linkRegister;
-    
+
     @FindBy(css = "#top-menu #account li.my-account")
     WebElement linkMyAccount;
-    
+
     @FindBy(css = "#top-menu #account li.logout")
     WebElement linkLogout;
-    
+
     @FindBy(id = "q")
     WebElement inputBusca;
     
